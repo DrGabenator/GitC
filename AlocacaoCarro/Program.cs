@@ -31,6 +31,10 @@ namespace AlocacaoCarro
             {
                 MenuAlocacaoDeCarro();
             }
+            if (MenuDeInicio() == 2);
+            {
+                
+            }
 
             Console.ReadKey();
         }
