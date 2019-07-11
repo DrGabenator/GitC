@@ -12,40 +12,12 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
         static void Main(string[] args)
         {
             CarregaBaseDeDados();
-
+            
             MostrarSejaBemVindo();
 
             if(MenuInicial() == 1)
             {
-                Console.Clear();
-
-                MostrarSejaBemVindo();
-
-                Console.WriteLine("Menu - Alocação de livros:");
-                Console.WriteLine("Digite o nome do livro a ser alocado:");
-
-                var nomedolivro = Console.ReadLine();
-                if (PesquisaLivroParaAlocacao(nomedolivro))
-                {
-                    Console.Clear();
-                    Console.WriteLine("Você deseja alocar o livro? Para sim(1) para não(0)");
-                    if (Console.ReadKey().KeyChar.ToString() == "1")
-                    {
-                        AlocarLivro(nomedolivro);
-                        Console.Clear();
-                        Console.WriteLine("Livro alocado com sucesso!");
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Livro não pode ser alocado!");
-                    }
-                    Console.WriteLine("Listagem de livros:");
-                    for (int i = 0; i < baseDeLivros.GetLength(0); i++)
-                    {
-                        Console.WriteLine($"Nome: {baseDeLivros[i, 0]} Disponível:{baseDeLivros[i, 1]}");
-                    }
-                }
+                MostrarMenuAlocacao();
             }
 
             Console.ReadKey();
@@ -125,6 +97,42 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
             {
                 if (nomeLivro == baseDeLivros[i, 0])
                     baseDeLivros[i,1] = "Não!";
+            }
+        }
+
+        /// <summary>
+        /// Método que mostra todo o menu de alocação do sistema
+        /// </summary>
+        public static void MostrarMenuAlocacao()
+        {
+            Console.Clear();
+
+            MostrarSejaBemVindo();
+
+            Console.WriteLine("Menu - Alocação de livros:");
+            Console.WriteLine("Digite o nome do livro a ser alocado:");
+
+            var nomedolivro = Console.ReadLine();
+            if (PesquisaLivroParaAlocacao(nomedolivro))
+            {
+                Console.Clear();
+                Console.WriteLine("Você deseja alocar o livro? Para sim(1) para não(0)");
+                if (Console.ReadKey().KeyChar.ToString() == "1")
+                {
+                    AlocarLivro(nomedolivro);
+                    Console.Clear();
+                    Console.WriteLine("Livro alocado com sucesso!");
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Livro não pode ser alocado!");
+                }
+                Console.WriteLine("Listagem de livros:");
+                for (int i = 0; i < baseDeLivros.GetLength(0); i++)
+                {
+                    Console.WriteLine($"Nome: {baseDeLivros[i, 0]} Disponível:{baseDeLivros[i, 1]}");
+                }
             }
         }
     }
