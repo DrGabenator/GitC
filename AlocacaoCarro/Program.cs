@@ -27,15 +27,35 @@ namespace AlocacaoCarro
 
             BemVindo();
 
-            if (MenuDeInicio() == 1)
-            {
-                MenuAlocacaoDeCarro();
-            }
-            if (MenuDeInicio() == 2);
-            {
-                
-            }
+            var opcaoDoMenu = MenuDeInicio();
 
+            while (opcaoDoMenu != 6)
+            {
+                if (opcaoDoMenu == 1)
+                {
+                    AlocarUmCarro();
+                }
+                if (opcaoDoMenu == 2)
+                {
+                    DesalocarUmCarro();
+                }
+                if (opcaoDoMenu == 3)
+                {
+                    LerApagar();
+
+                    MostrarListaDeCarros();
+                }
+                if (opcaoDoMenu == 4)
+                {
+                    Desenho1();
+                }
+                if (opcaoDoMenu == 5)
+                {
+                    Desenho2();
+                }
+                
+                opcaoDoMenu = MenuDeInicio();
+            }
             Console.ReadKey();
         }
 
@@ -77,9 +97,13 @@ namespace AlocacaoCarro
         public static int MenuDeInicio()
         {
             Console.WriteLine("\r\nInicializando o sistema VELOZES E FURIOSOS!");
-            Console.WriteLine("Você deseja alocar um carro MEGA VELOZ E MEGA FURIOSO?");
-            Console.WriteLine("1 - Sim!");
-            Console.WriteLine("2 - Não!(TEM CERTEZA QUE NÃO QUER!?)");
+            Console.WriteLine("Bem vindo ao menu principal!");
+            Console.WriteLine("1 - Se você deseja alocar um carro.");
+            Console.WriteLine("2 - Se você deseja desalocar um carro.");
+            Console.WriteLine("3 - Se você quer ver a listagem de carros.");
+            Console.WriteLine("4 - Se você deseja ver o incrível desenho 1.");
+            Console.WriteLine("5 - Se você deseja ver o incrível desenho 2.");
+            Console.WriteLine("6 - Se você deseja sair do sistema.");
             Console.WriteLine("Digite o número desejado.");
 
             int.TryParse(Console.ReadKey().KeyChar.ToString(), out int escolha);
@@ -117,17 +141,20 @@ namespace AlocacaoCarro
         /// Método para verficiar se o carro pode ser alocado
         /// </summary>
         /// <param name="nomeCarro"></param>
-        public static void AlocarCarro(string nomeCarro)
+        public static void AtualizarCarro(string nomeCarro, bool alocar)
         {
             for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
             {
                 if (nomeCarro == baseDeVeiculos[i, 0])
                 { 
-                    baseDeVeiculos[i, 2] = "Não!";
+                    baseDeVeiculos[i, 2] = alocar? "Não!": "Sim!";
                 }
             }
+            Console.Clear();
+            Console.WriteLine("Carro atualizado com sucesso!");
         }
 
+        /*
         /// <summary>
         /// Método para mostrar o menu de alocação de carro
         /// </summary>
@@ -139,41 +166,22 @@ namespace AlocacaoCarro
 
             Console.WriteLine("Menu - Alocação dos carros mega velozes e mega furiosos:\r\n");
             Console.WriteLine("Listagem de mega carros:");
-            for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
-            {
-                Console.WriteLine($"Carro: {baseDeVeiculos[i, 0]} Ano: {baseDeVeiculos[i, 1]} Disponível: {baseDeVeiculos[i, 2]}");
-            }
+
+            MostrarListaDeCarros();
+
             Console.WriteLine("\nDigite o nome do carro mega veloz e mega furioso:");
 
             var nomedocarro = Console.ReadLine();
-            if (PesquisaCarroParaAlocacao(nomedocarro))
-            {
-                Console.Clear();
-                Console.WriteLine("Você deseja alocar o mega carro? Para sim(1) para não(0)");
-                if (Console.ReadKey().KeyChar.ToString() == "1")
-                {
-                    AlocarCarro(nomedocarro);
-                    Console.Clear();
-                    Console.WriteLine("O carro foi alocado com sucesso!");
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("O carro não pode ser alocado!");
-                }
-                Console.WriteLine("Listagem de mega carros:");
-                for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
-                {
-                    Console.WriteLine($"Carro: {baseDeVeiculos[i, 0]} Ano: {baseDeVeiculos[i,1]} Disponível: {baseDeVeiculos[i, 2]}");
-                }
-            }
+            
         }
+        */
 
         /// <summary>
         /// Método para mostrar o desenho 1
         /// </summary>
         public static void Desenho1()
         {
+            Console.Clear();
             Console.WriteLine(@"§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 §__________________________________________________________________________§
 §___________________________$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$________§
@@ -206,6 +214,7 @@ namespace AlocacaoCarro
         /// </summary>
         public static void Desenho2()
         {
+            Console.Clear();
             Console.WriteLine(@"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ░░░░░░░▄▄▀▀▀▀▀▀▀▀▀▀▄▄█▄░░░░▄░░░░█░░░░░░░
 ░░░░░░█▀░░░░░░░░░░░░░▀▀█▄░░░▀░░░░░░░░░▄░
@@ -233,6 +242,63 @@ namespace AlocacaoCarro
             Console.ReadKey();
 
             Console.Clear();
+        }
+
+        public static void AlocarUmCarro()
+        {
+            MostrarMenuInicialCarros("Alocar um carro:");
+
+            var nomedocarro = Console.ReadLine();
+            if (PesquisaCarroParaAlocacao(nomedocarro))
+            {
+                Console.Clear();
+                BemVindo();
+                Console.WriteLine("Você deseja alocar o carro? Para sim(1) para não(0)");
+
+                AtualizarCarro(nomedocarro, Console.ReadKey().KeyChar.ToString() == "1");
+
+                MostrarListaDeCarros();
+
+                Console.ReadKey();
+            }
+        }
+
+        public static void DesalocarUmCarro()
+        {
+            MostrarMenuInicialCarros("Desalocar um carro:");
+
+            MostrarListaDeCarros();
+
+            var nomedocarro = Console.ReadLine();
+            if (!PesquisaCarroParaAlocacao(nomedocarro))
+            {
+                Console.Clear();
+                Console.WriteLine("Você deseja desalocar o carro? Para sim(1) para não(0)");
+
+                AtualizarCarro(nomedocarro, Console.ReadKey().KeyChar.ToString() == "0");
+
+                MostrarListaDeCarros();
+
+                Console.ReadKey();
+            }
+        }
+
+        public static void MostrarListaDeCarros()
+        {
+            for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
+            {
+                Console.WriteLine($"Carro: {baseDeVeiculos[i, 0]} Ano: {baseDeVeiculos[i, 1]} Disponível: {baseDeVeiculos[i, 2]}");
+            }
+        }
+
+        public static void MostrarMenuInicialCarros(string operacao)
+        {
+            Console.Clear();
+
+            BemVindo();
+
+            Console.WriteLine($"Menu - {operacao}");
+            Console.WriteLine("Digite o nome do carro para realizar a operação:");
         }
     }
 }
