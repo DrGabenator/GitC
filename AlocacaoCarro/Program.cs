@@ -94,9 +94,14 @@ namespace AlocacaoCarro
             {
                 if (nomeCarro == baseDeVeiculos[i, 0])
                 {
+                    Console.Clear();
                     Console.WriteLine($"O carro: {nomeCarro}" +
-                        $" pode ser alocado? {baseDeVeiculos[i, 2]}");
+                        $" pode ser alocado? {baseDeVeiculos[i, 2]}\r\n");
 
+                    for (int j = 0; j < baseDeVeiculos.GetLength(0); j++)
+                    {
+                        Console.WriteLine($"Carro: {baseDeVeiculos[j, 0]} Ano: {baseDeVeiculos[j, 1]} Disponível: {baseDeVeiculos[j, 2]}");
+                    }
                     return baseDeVeiculos[i, 2] == "Sim!";
                 }
             }
@@ -113,7 +118,9 @@ namespace AlocacaoCarro
             for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
             {
                 if (nomeCarro == baseDeVeiculos[i, 0])
+                { 
                     baseDeVeiculos[i, 2] = "Não!";
+                }
             }
         }
 
