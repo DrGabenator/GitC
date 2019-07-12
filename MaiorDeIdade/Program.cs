@@ -27,6 +27,9 @@ namespace MaiorDeIdade
             }
         }
 
+        /// <summary>
+        /// Método que mostra um menu de bem vindo ao usuário
+        /// </summary>
         public static void BemVindo()
         {
             Console.WriteLine("*****************************************************");
@@ -35,6 +38,10 @@ namespace MaiorDeIdade
             Console.WriteLine("*****************************************************");
         }
 
+        /// <summary>
+        /// Método que mostra um menu de inicialização para o usuário fazer sua escolha
+        /// </summary>
+        /// <returns>Retorna a escolha do usuário</returns>
         public static int MenuDeInicializacao()
         {
             Console.WriteLine("1- Se você deseja verificar se você tem 18 anos ou mais e pode consumir álcool.");
@@ -46,6 +53,10 @@ namespace MaiorDeIdade
             return escolha;
         }
 
+        /// <summary>
+        /// Método que pergunta o nome da pessoa e armazena esse valor
+        /// </summary>
+        /// <returns>Retorna o nome que foi digitado pelo usuário</returns>
         public static string ChecarNome()
         {
             Console.WriteLine("\nVamos confirmar seu nome!");
@@ -55,6 +66,10 @@ namespace MaiorDeIdade
             return nome;
         }
 
+        /// <summary>
+        /// Método para checar a idade e comparar para ver onde a pessoa se encaixa nas limitações
+        /// </summary>
+        /// <param name="nome"></param>
         public static void ChecarIdadeELegalidade(string nome)
         {
             Console.WriteLine("\nVamos checar a sua idade!");
