@@ -16,6 +16,9 @@ namespace ReceitaDeBolo
             ReceitaBolo();
         }
 
+        /// <summary>
+        /// Método que contém a lista com os passos da receita de bolo
+        /// </summary>
         public static void ReceitaBolo()
         {
             string[] receita = new string[8] {@"
@@ -86,8 +89,11 @@ namespace ReceitaDeBolo
                 Console.WriteLine("\r\nAperte qualquer tecla para prosseguir.");
                 Console.ReadKey();
             }
-        } 
+        }
 
+        /// <summary>
+        /// Método que mostra uma tela de bem vindo para o usuário
+        /// </summary>
         public static void BemVindo()
         {
             Console.WriteLine(@"
