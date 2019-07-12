@@ -66,8 +66,8 @@ namespace AlocacaoCarro
         {
             baseDeVeiculos = new string[2, 3]
             {
-                {"Lamborghini", "2019", "Sim!"},
-                {"Fusca", "1969", "Não!"}
+                {"Lamborghini Aventador", "2019", "Sim!"},
+                {"Fusca Tunado", "1969", "Não!"}
             };
         }
 
@@ -116,11 +116,11 @@ namespace AlocacaoCarro
         /// </summary>
         /// <param name="nomeCarro"></param>
         /// <returns>Retorna verdadeiro se o carro puder ser alocado</returns>
-        public static bool PesquisaCarroParaAlocacao(string nomeCarro)
+        public static bool? PesquisaCarroParaAlocacao(string nomeCarro)
         {
             for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
             {
-                if (nomeCarro == baseDeVeiculos[i, 0])
+                if (CompararNomes(nomeCarro, baseDeVeiculos[i,0]))
                 {
                     Console.Clear();
                     Console.WriteLine($"O carro: {nomeCarro}" +
@@ -134,7 +134,20 @@ namespace AlocacaoCarro
                 }
             }
 
-            return false;
+            Console.WriteLine("Nenhum carro mega tunado foi encontrado, deseja realizar a busca novamente?");
+            Console.WriteLine("Digite o número da opção desejada: Sim(1) não(0)");
+
+            int.TryParse(Console.ReadKey().KeyChar.ToString(), out int opcao);
+
+            if (opcao == 1)
+            {
+                Console.WriteLine("\nDigite o nome do carro mega tunado a ser pesquisado:");
+                nomeCarro = Console.ReadLine();
+
+                return PesquisaCarroParaAlocacao(nomeCarro);
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -145,7 +158,7 @@ namespace AlocacaoCarro
         {
             for (int i = 0; i < baseDeVeiculos.GetLength(0); i++)
             {
-                if (nomeCarro == baseDeVeiculos[i, 0])
+                if (CompararNomes(nomeCarro, baseDeVeiculos[i,0]))
                 { 
                     baseDeVeiculos[i, 2] = alocar? "Não!": "Sim!";
                 }
@@ -249,7 +262,9 @@ namespace AlocacaoCarro
             MostrarMenuInicialCarros("Alocar um carro:");
 
             var nomedocarro = Console.ReadLine();
-            if (PesquisaCarroParaAlocacao(nomedocarro))
+            var resultpesquisa = PesquisaCarroParaAlocacao(nomedocarro);
+
+            if (resultpesquisa != null && resultpesquisa == true)
             {
                 Console.Clear();
                 BemVindo();
@@ -261,6 +276,12 @@ namespace AlocacaoCarro
 
                 Console.ReadKey();
             }
+
+            if (resultpesquisa == null)
+            {
+                Console.WriteLine("Nenhum carro encontrado em nossa base de dados do sistema.");
+            }
+
         }
 
         public static void DesalocarUmCarro()
@@ -270,7 +291,9 @@ namespace AlocacaoCarro
             MostrarListaDeCarros();
 
             var nomedocarro = Console.ReadLine();
-            if (!PesquisaCarroParaAlocacao(nomedocarro))
+            var resultpesquisa = PesquisaCarroParaAlocacao(nomedocarro);
+
+            if (resultpesquisa != null && resultpesquisa == false)
             {
                 Console.Clear();
                 Console.WriteLine("Você deseja desalocar o carro? Para sim(1) para não(0)");
@@ -280,6 +303,11 @@ namespace AlocacaoCarro
                 MostrarListaDeCarros();
 
                 Console.ReadKey();
+            }
+
+            if (resultpesquisa == null)
+            {
+                Console.WriteLine("\nO carro mega tunado não pode ser encontrado na base de dados.");
             }
         }
 
@@ -299,6 +327,13 @@ namespace AlocacaoCarro
 
             Console.WriteLine($"Menu - {operacao}");
             Console.WriteLine("Digite o nome do carro para realizar a operação:");
+        }
+
+        public static bool CompararNomes(string primeiro, string segundo)
+        {
+            if (primeiro.ToLower().Replace(" ", "") == segundo.ToLower().Replace(" ", ""))
+                return true;
+            return false;
         }
     }
 }
