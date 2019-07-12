@@ -86,11 +86,11 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
         /// </summary>
         /// <param name="nomeLivro">Nome do livro a ser pesquisado</param>
         /// <returns>Retorna verdadeiro em caso o livro estiver livre para alocação.</returns>
-        public static bool PesquisaLivroParaAlocacao(string nomeLivro)
+        public static bool? PesquisaLivroParaAlocacao(string nomeLivro)
         {
             for (int i = 0; i < baseDeLivros.GetLength(0); i++)
             {
-                if (nomeLivro == baseDeLivros[i, 0])
+                if (CompararNomes(nomeLivro, baseDeLivros[i,0]))
                 {
                     Console.WriteLine($"O livro: {nomeLivro}" +
                         $" pode ser alocado? {baseDeLivros[i, 1]}");
@@ -99,7 +99,20 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
                 }
             }
 
-            return false;
+            Console.WriteLine("Nenhum livro encontrado, deseja realizar a busca novamente?");
+            Console.WriteLine("Digite o número da opção desejada: Sim(1) não(0)");
+
+            int.TryParse(Console.ReadKey().KeyChar.ToString(),out int opcao);
+
+            if(opcao == 1)
+            {
+                Console.WriteLine("\nDigite o nome do livro a ser pesquisado:");
+                nomeLivro = Console.ReadLine();
+
+                return PesquisaLivroParaAlocacao(nomeLivro);
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -111,7 +124,7 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
         {
             for (int i = 0; i < baseDeLivros.GetLength(0); i++)
             {
-                if (nomeLivro == baseDeLivros[i, 0])
+                if (CompararNomes(nomeLivro, baseDeLivros[i, 0]))
                 {
                     baseDeLivros[i,1] = alocar? "Não!" : "Sim!";
                 }
@@ -129,7 +142,9 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
             MostrarMenuInicialLivros("Alocar um livro:"); 
 
             var nomedolivro = Console.ReadLine();
-            if (PesquisaLivroParaAlocacao(nomedolivro))
+            var resultadoPesquisa = PesquisaLivroParaAlocacao(nomedolivro);
+
+            if (resultadoPesquisa != null && resultadoPesquisa == true)
             {
                 Console.Clear();
                 MostrarSejaBemVindo();
@@ -140,6 +155,11 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
                 MostrarListaDeLivros();
 
                 Console.ReadKey();
+            }
+
+            if(resultadoPesquisa == null)
+            {
+                Console.WriteLine("Nenhum livro encontrado em nossa base de dados do sistema.");
             }
         }
 
@@ -161,9 +181,12 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
             MostrarListaDeLivros();
 
             var nomedolivro = Console.ReadLine();
-            if (!PesquisaLivroParaAlocacao(nomedolivro))
+            var resultadoPesquisa = PesquisaLivroParaAlocacao(nomedolivro);
+
+            if (resultadoPesquisa != null && resultadoPesquisa == false)
             {
                 Console.Clear();
+                MostrarSejaBemVindo();
                 Console.WriteLine("Você deseja desalocar o livro? Para sim(1) para não(0)");
 
                 AlocarLivro(nomedolivro, Console.ReadKey().KeyChar.ToString() == "0");
@@ -171,6 +194,11 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
                 MostrarListaDeLivros();
 
                 Console.ReadKey();
+            }
+
+            if (resultadoPesquisa == null)
+            {
+                Console.WriteLine("Nenhum livro encontrado em nossa base de dados do sistema.");
             }
         }
 
@@ -182,6 +210,19 @@ namespace SistemaBibliotecaOnlineNasa3PONTOZERO
 
             Console.WriteLine($"Menu - {operacao}");
             Console.WriteLine("Digite o nome do livro para realizar a operação:");
+        }
+
+        /// <summary>
+        /// Método que compara duas strings deixando em caixa baixa e removendo espaços vazaios dentro da mesma.
+        /// </summary>
+        /// <param name="primeiro">Primeira strng a ser comparada.</param>
+        /// <param name="segundo">Segunda string a ser comparada.</param>
+        /// <returns>Retorna o resultado desta comparação.</returns>
+        public static bool CompararNomes(string primeiro, string segundo)
+        {
+            if (primeiro.ToLower().Replace(" ", "") == segundo.ToLower().Replace(" ", ""))
+                return true;
+            return false;
         }
     }
 }
