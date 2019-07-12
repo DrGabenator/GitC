@@ -14,11 +14,15 @@ namespace MaiorDeIdade
 
             var opcaoDoMenu = MenuDeInicializacao();
 
+
             while (opcaoDoMenu != 2)
             {
+                var nomePessoa = ChecarNome();
+
                 if (opcaoDoMenu == 1)
                 {
-                    ChecarIdadeELegalidade();
+                    ChecarIdadeELegalidade(nomePessoa);
+                    opcaoDoMenu = 2;
                 }
             }
         }
@@ -42,7 +46,16 @@ namespace MaiorDeIdade
             return escolha;
         }
 
-        public static void ChecarIdadeELegalidade()
+        public static string ChecarNome()
+        {
+            Console.WriteLine("\nVamos confirmar seu nome!");
+            Console.WriteLine("Digite seu nome:");
+            string nome = Console.ReadLine();
+
+            return nome;
+        }
+
+        public static void ChecarIdadeELegalidade(string nome)
         {
             Console.WriteLine("\nVamos checar a sua idade!");
             Console.WriteLine("Digite sua idade:");
@@ -72,7 +85,7 @@ namespace MaiorDeIdade
                                     ░▀▀▀▀▀▀░░░░░░░█░░░░░░░░░░░░░░░▀▀█▀▀▀▀▀▀
                                     ░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░█▀░░░░░░
                                     ░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░▄█░░░░░░░");
-                Console.WriteLine($"Infelizmente você tem {idade} anos e não pode ingerir bebidas alcoólicas ainda.");
+                Console.WriteLine($"Infelizmente {nome}, você tem {idade} anos e não pode ingerir bebidas alcoólicas ainda.");
             }
 
             if (idade >= 19 && idade < 100)
@@ -97,7 +110,7 @@ namespace MaiorDeIdade
                                     ░░▀▀▀▀░░░░░░░░░░░░░░░░░░░░░░█▄▄▄▄▄▄▄▄▄██
                                     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
 
-            Console.WriteLine($"Felizmente você já tem {idade} anos e pode ingerir bebidas alcoólicas!");
+            Console.WriteLine($"Felizmente {nome}, você já tem {idade} anos e pode ingerir bebidas alcoólicas!");
             }
             if (idade >= 100)
             {
@@ -126,8 +139,9 @@ namespace MaiorDeIdade
                                     ───▄██▀▄░░░░░███▀▄██████▀▀██████▀▄███
                                     ───▀▀───▀▀▀▀▀▀█████████▀▀▀▀█████████▀
                                     ───────────────▀▀▀▀▀▀▀──────▀▀▀▀▀▀▀");
-                Console.WriteLine($"Olha, você já tem {idade} e você pode ingerir bebidas alcoólicas mas não é recomendado...");
+                Console.WriteLine($"Olha {nome}, você já tem {idade} e você pode ingerir bebidas alcoólicas mas não é recomendado...");
             }
+            Console.ReadKey();
         }
     }
 }
