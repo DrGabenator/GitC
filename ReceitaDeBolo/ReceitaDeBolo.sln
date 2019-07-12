@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceitaDeBolo", "ReceitaDeBolo.csproj", "{12782AFE-58E0-4367-99D3-B53290D30E9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12782AFE-58E0-4367-99D3-B53290D30E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12782AFE-58E0-4367-99D3-B53290D30E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12782AFE-58E0-4367-99D3-B53290D30E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12782AFE-58E0-4367-99D3-B53290D30E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2DC2C2D-342F-4123-8F48-D45F05A3F395}
+	EndGlobalSection
+EndGlobal
