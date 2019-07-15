@@ -12,11 +12,12 @@ namespace AdicionandoValoresEmUmaLista
         {
             //Criação da nossa lista
             string[,] listaDeNomes = new string[10, 2];
+            
             //Aqui vamos criar uma forma externa de identificar nossos registros
             int IdParaLista = 0;
 
             //Chamada do nosso método para inserir registro passando por meio de referência
-            //nooso dois itens, lista de nomes e identificidor único
+            //nosso dois itens, lista de nomes e identificidor único
             InsereRegistro(ref listaDeNomes, ref IdParaLista);
 
             Console.ReadKey();
