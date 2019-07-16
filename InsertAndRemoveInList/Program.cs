@@ -118,6 +118,7 @@ namespace InsertAndRemoveInList
         /// Mostra as informações dentro da nossa lista de dados "base de dados"
         /// </summary>
         /// <param name="baseDeDados">Base de dados para a leitura e mostrar para o usuário</param>
+        /// /// <param name="mostrarRegistroNaosAtivo">Quando identificado com o valor true, o mesmo mostra os registros que não estão ativos dentro do sistema</param>
         public static void MostrarInformacoes(string[,] baseDeDados, string mostrarRegistroNaosAtivos = "false")
         {
             //Informamos em que tela o mesmo está
