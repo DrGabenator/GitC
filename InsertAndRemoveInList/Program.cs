@@ -11,7 +11,7 @@ namespace InsertAndRemoveInList
         static void Main(string[] args)
         {
             //Criamos a nossa base de dados inicial
-            string[,] baseDeDados = new string[2, 3];
+            string[,] baseDeDados = new string[2, 5];
 
             //Indicador dos registros realizados em nosso sistema
             int IndiceBaseDeDados = 0;
@@ -34,8 +34,10 @@ namespace InsertAndRemoveInList
                     case "2": { RemoverInformacoes(ref baseDeDados); } break;
                     //3- Lista as informações da lista
                     case "3": { MostrarInformacoes(baseDeDados); } break;
+                    //Menu que mostra apenas registros desativados do sistema
+                    case "4": { MostrarInformacoes(baseDeDados, "true"); } break;
                     //Sai do nosso sistema
-                    case "4":
+                    case "5":
                         {
                             //Return dentro do nosso caso de escolha ele sai do nosso método principal ou método que estamos dentro do contexto
                             return;
@@ -57,7 +59,8 @@ namespace InsertAndRemoveInList
             Console.WriteLine("1 - Inserir um novo registro");
             Console.WriteLine("2 - Remover um novo registro");
             Console.WriteLine("3 - Listar informações");
-            Console.WriteLine("4 - Sair do sistema");
+            Console.WriteLine("4 - Lista as informações desativadas");
+            Console.WriteLine("5 - Sair do sistema");
 
             Console.WriteLine("Digite o número da opção desejada:");
             //Retorna diretamente o menu escolhido.
@@ -98,7 +101,10 @@ namespace InsertAndRemoveInList
                 baseDeDados[i, 1] = nome;
                 //Carregamos na terceira coluna o valor da idade
                 baseDeDados[i, 2] = idade;
-                //Finalizamos aqui para apenas inserir um registro por vez
+                //Carrega a coluna que identifica se o registro está ativo
+                baseDeDados[i, 3] = "true";
+                //Identificamos agora a data e hora de criação dos registros dentro do sistema
+                baseDeDados[i, 4] = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
                 break;
             }
@@ -112,17 +118,24 @@ namespace InsertAndRemoveInList
         /// Mostra as informações dentro da nossa lista de dados "base de dados"
         /// </summary>
         /// <param name="baseDeDados">Base de dados para a leitura e mostrar para o usuário</param>
-        public static void MostrarInformacoes(string[,] baseDeDados)
+        public static void MostrarInformacoes(string[,] baseDeDados, string mostrarRegistroNaosAtivos = "false")
         {
             //Informamos em que tela o mesmo está
             Console.WriteLine("Apresentação das informações dentro da base de dados.");
-
+            //Comparação que identifica visualmente quais registros estamos mostrando
+            if (mostrarRegistroNaosAtivos == "true")
+            {
+                Console.WriteLine("Registros desativados dentro do sistema.");
+            }
             //Laço simples aonde o mesmo mostra de maneira formatada as informações
             for (int i = 0; i < baseDeDados.GetLength(0); i++)
             {
-                Console.WriteLine($"ID: {baseDeDados[i,0]} /" +
-                    $" Nome: {baseDeDados[i,1]} /" +
-                    $" Idade: {baseDeDados[i,2]}");
+                //Aqui deixamos de mostrar as informações que informações que foram desabilitadas dentro do sistema
+                if (baseDeDados[i, 3] != mostrarRegistroNaosAtivos)
+                Console.WriteLine($"ID: {baseDeDados[i, 0]} /" +
+                    $" Nome: {baseDeDados[i, 1]} /" +
+                    $" Idade: {baseDeDados[i, 2]} /" +
+                    $" Data Alteração: {baseDeDados[i, 4]}");
             }
 
             //Finalizamos a operação e indicamos que não existe mais operações a serem realizada em nosso método
@@ -141,6 +154,8 @@ namespace InsertAndRemoveInList
 
             for (int i = 0; i < baseDeDados.GetLength(0); i++)
             {
+                //Identifica que só deve remover os valores ativos dentro do sistema
+                if (baseDeDados[i, 3] != "false") 
                 Console.WriteLine($"ID: {baseDeDados[i, 0]} /" +
                     $" Nome: {baseDeDados[i, 1]} /" +
                     $" Idade: {baseDeDados[i, 2]}");
@@ -153,9 +168,10 @@ namespace InsertAndRemoveInList
             {
                 if(baseDeDados[i,0] != null && baseDeDados[i,0] == id)
                 {
-                baseDeDados[i, 0] = null;
-                baseDeDados[i, 1] = null;
-                baseDeDados[i, 2] = null;
+                    //Agora trocamos este valor para um identificador string "false"
+                    baseDeDados[i, 3] = "false";
+                    //Aqui indicamos a data que foi alterado nesse registro
+                    baseDeDados[i, 4] = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 }
             }
 
@@ -186,7 +202,7 @@ namespace InsertAndRemoveInList
                 //criamos uma cópia da nossa lista para não perder os valores
                 var listaCopia = baseDeDados;
                 //Aqui Limpamos nossa lista antigas e assinamos novamente com uma lista com mais espaços
-                baseDeDados = new string[baseDeDados.GetLength(0) + 5, 3];
+                baseDeDados = new string[baseDeDados.GetLength(0) + 5, 5];
                 //Agora copiamos os registros da nossa lista antiga e passamos para a nossa nova lista
                 for (int i = 0; i < listaCopia.GetLength(0); i++)
                 {
@@ -194,7 +210,12 @@ namespace InsertAndRemoveInList
                     baseDeDados[i, 0] = listaCopia[i, 0];
                     //Copiamos a informação do nosso nome
                     baseDeDados[i, 1] = listaCopia[i, 1];
+                    //A informação  da idade foi atualizada
                     baseDeDados[i, 2] = listaCopia[i, 2];
+                    //Identificador se o registro está ativo
+                    baseDeDados[i, 2] = listaCopia[i, 3];
+                    //Data da alteração deste registro
+                    baseDeDados[i, 2] = listaCopia[i, 4];
                 }
                 //indicamos que neste ponto a lista foi atualizada em seu tamanho.
                 Console.WriteLine("O tamanho da lista foi atualizado.");
