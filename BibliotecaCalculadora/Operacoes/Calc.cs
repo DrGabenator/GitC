@@ -20,22 +20,24 @@ namespace BibliotecaCalculadora.Operacoes
             switch (opcao)
             {
                 case "1":
-                    {
-                        Soma();
-                    }break;
+
+                    Soma();
+
+                    break;
                 case "2":
-                    {
-                        Subtracao();
-                    }break;
+
+                    Subtracao();
+
+                    break;
                 case "3":
-                    {
-                        Multiplicacao();
-                    }
+
+                    Multiplicacao();
+
                     break;
                 case "4":
-                    {
-                        Divisao();
-                    }
+
+                    Divisao();
+
                     break;
             }
         }
