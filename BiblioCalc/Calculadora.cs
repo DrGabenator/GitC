@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaCalculadora.Operacoes
+namespace BiblioCalc
 {
-    public class Calc
+    public class Calculadora
     {
         public float Soma(float op1Som, float op2Som)
         {

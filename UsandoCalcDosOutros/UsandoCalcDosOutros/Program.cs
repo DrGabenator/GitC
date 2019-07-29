@@ -1,16 +1,17 @@
-﻿using BibliotecaCalculadora.Operacoes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Calc;
 
-namespace UsandoCalc
+namespace UsandoCalcDosOutros
 {
     class Program
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Digite o número da operação desejada:");
             Console.WriteLine("1 - SOMA");
             Console.WriteLine("2 - SUBTRAÇÃO");
@@ -28,7 +29,7 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float op1Som);
                     Console.WriteLine("Digite o segundo operador: ");
                     float.TryParse(Console.ReadLine(), out float op2Som);
-                    Console.WriteLine(new Calc().Soma(op1Som,op2Som));
+                    Console.WriteLine(new Operacoes().CalculaAdicao(op1Som, op2Som));
 
                     break;
                 case "2":
@@ -36,7 +37,7 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float op1Sub);
                     Console.WriteLine("Digite o segundo operador: ");
                     float.TryParse(Console.ReadLine(), out float op2Sub);
-                    Console.WriteLine(new Calc().Subtracao(op1Sub, op2Sub));
+                    Console.WriteLine(new Operacoes().CalculaSubtracao(op1Sub, op2Sub));
 
                     break;
                 case "3":
@@ -44,7 +45,7 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float op1Mul);
                     Console.WriteLine("Digite o segundo operador: ");
                     float.TryParse(Console.ReadLine(), out float op2Mul);
-                    Console.WriteLine(new Calc().Multiplicacao(op1Mul, op2Mul));
+                    Console.WriteLine(new Operacoes().CalculaMultiplicacao(op1Mul, op2Mul));
 
                     break;
                 case "4":
@@ -52,7 +53,7 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float op1Div);
                     Console.WriteLine("Digite o segundo operador: ");
                     float.TryParse(Console.ReadLine(), out float op2Div);
-                    Console.WriteLine(new Calc().Divisao(op1Div, op2Div));
+                    Console.WriteLine(new Operacoes().CalculaDivisao(op1Div, op2Div));
 
                     break;
 
@@ -61,7 +62,7 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float bsRet);
                     Console.WriteLine("Digite a altura do retângulo: ");
                     float.TryParse(Console.ReadLine(), out float alturaRet);
-                    Console.WriteLine(new Calc().AreaRetangulo(bsRet, alturaRet));
+                    Console.WriteLine(new Operacoes().CalculaRet(bsRet, alturaRet));
 
                     break;
 
@@ -70,14 +71,14 @@ namespace UsandoCalc
                     float.TryParse(Console.ReadLine(), out float bsTri);
                     Console.WriteLine("Digite a altura do triângulo: ");
                     float.TryParse(Console.ReadLine(), out float alturaTri);
-                    Console.WriteLine(new Calc().AreaTrianguloEquilatero(bsTri, alturaTri));
+                    Console.WriteLine(new Operacoes().CalculaTriEq(bsTri, alturaTri));
 
                     break;
 
                 case "7":
                     Console.WriteLine("Digite a área do círculo para receber o raio: ");
-                    float.TryParse(Console.ReadLine(),out float area);
-                    Console.WriteLine(new Calc().AreaCirculo(area));
+                    float.TryParse(Console.ReadLine(), out float area);
+                    Console.WriteLine(new Operacoes().CalculaRaio(area));
 
                     break;
             }

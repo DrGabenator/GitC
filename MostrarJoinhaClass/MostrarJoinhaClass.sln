@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostrarJoinhaClass", "MostrarJoinhaClass\MostrarJoinhaClass.csproj", "{5DF3084C-C627-4A64-90D7-998F3201F799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsandoBibliotecaJoinha", "UsandoBibliotecaJoinha\UsandoBibliotecaJoinha.csproj", "{B0DB9B23-1865-4BEC-A6EF-F9CEAE5CB2C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DF3084C-C627-4A64-90D7-998F3201F799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF3084C-C627-4A64-90D7-998F3201F799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF3084C-C627-4A64-90D7-998F3201F799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF3084C-C627-4A64-90D7-998F3201F799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DB9B23-1865-4BEC-A6EF-F9CEAE5CB2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DB9B23-1865-4BEC-A6EF-F9CEAE5CB2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DB9B23-1865-4BEC-A6EF-F9CEAE5CB2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DB9B23-1865-4BEC-A6EF-F9CEAE5CB2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA209AF1-7D4B-4923-97BA-0F9F8AC3B7FA}
+	EndGlobalSection
+EndGlobal
