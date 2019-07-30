@@ -12,6 +12,5 @@ namespace MinhaPrimeiraListaTipada.Classes
         public int Quantidade { get; set; }
         public double Valor { get; set; }
 
-
     }
 }
