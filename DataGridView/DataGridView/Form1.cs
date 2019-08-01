@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataGridView.Adicionar;
+using DataGridView.Edicao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,7 +59,24 @@ namespace DataGridView
 
                 case 1:
                     {
-                    }break;
+                        frmEdicaoCarros editCarro = new frmEdicaoCarros();
+                        editCarro.CarrosRow = carSelect;
+                        editCarro.ShowDialog();
+
+                        this.carrosTableAdapter.Update(editCarro.CarrosRow);
+
+                        /*
+                        this.carrosTableAdapter.UpdateQuery1(
+                            editCarro.CarrosRow.Modelo,
+                            editCarro.CarrosRow.Ano.ToString(),
+                            editCarro.CarrosRow.Marca,
+                            editCarro.CarrosRow.UsuAlt,
+                            DateTime.Now,
+                            editCarro.CarrosRow.Id
+                            );
+                        */
+                    }
+                    break;
             }
             this.carrosTableAdapter.CustomQuery(querysInnerJoinDataSet1.Carros);
         }
@@ -66,6 +85,24 @@ namespace DataGridView
         {
             Lixeira lixo = new Lixeira();
             lixo.ShowDialog();
+            this.carrosTableAdapter.CustomQuery(querysInnerJoinDataSet1.Carros);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            frmAdicionar formAdd = new frmAdicionar();
+            formAdd.ShowDialog();
+
+            this.carrosTableAdapter.Insert(
+               formAdd.carrosRow.Modelo,
+               formAdd.carrosRow.Ano,
+               formAdd.carrosRow.Marca,
+               true,
+               1,
+               1,
+               DateTime.Now,
+               DateTime.Now);
+
             this.carrosTableAdapter.CustomQuery(querysInnerJoinDataSet1.Carros);
         }
     }
