@@ -24,7 +24,6 @@ namespace DataGridView.Adicionar
         {
             // TODO: This line of code loads data into the 'querysInnerJoinDataSet1.Marcas' table. You can move, or remove it, as needed.
             this.marcasTableAdapter.Fill(this.querysInnerJoinDataSet1.Marcas);
-
         }
 
         private void Button1_Click(object sender, EventArgs e)

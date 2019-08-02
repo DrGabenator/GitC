@@ -1,4 +1,5 @@
-﻿using DataGridView.Edicao;
+﻿using DataGridView.Adicionar;
+using DataGridView.Edicao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,25 @@ namespace DataGridView
                     }
                     break;
             }
+            this.vendasTableAdapter.CustomQuery(this.querysInnerJoinDataSet1.Vendas);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            frmAdicionarVenda frmAdicionar = new frmAdicionarVenda();
+            frmAdicionar.ShowDialog();
+
+            if(frmAdicionar.vendasRow?.Carro > 0 && frmAdicionar.vendasRow?.Valor > 0)
+            this.vendasTableAdapter.Insert(
+               frmAdicionar.vendasRow.Carro,
+               frmAdicionar.vendasRow.Quantidade,
+               frmAdicionar.vendasRow.Valor,
+               true,
+               1,
+               1,
+               DateTime.Now,
+               DateTime.Now);
+
             this.vendasTableAdapter.CustomQuery(this.querysInnerJoinDataSet1.Vendas);
         }
     }
