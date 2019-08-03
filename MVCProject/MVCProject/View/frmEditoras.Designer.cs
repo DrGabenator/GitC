@@ -55,12 +55,13 @@
             this.nomeDataGridViewTextBoxColumn,
             this.descricaoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.editorasBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 55);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 45);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(775, 383);
+            this.dataGridView1.Size = new System.Drawing.Size(581, 311);
             this.dataGridView1.TabIndex = 0;
             // 
             // editorasBindingSource
@@ -75,9 +76,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
+            this.button1.Location = new System.Drawing.Point(10, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(775, 36);
+            this.button1.Size = new System.Drawing.Size(581, 29);
             this.button1.TabIndex = 1;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,11 +99,12 @@
             // 
             // editCommand
             // 
-            this.editCommand.DataPropertyName = "Id";
-            this.editCommand.HeaderText = "Edit";
+            this.editCommand.HeaderText = "Editar";
             this.editCommand.MinimumWidth = 6;
             this.editCommand.Name = "editCommand";
             this.editCommand.ReadOnly = true;
+            this.editCommand.Text = "Editar";
+            this.editCommand.UseColumnTextForButtonValue = true;
             this.editCommand.Width = 125;
             // 
             // nomeDataGridViewTextBoxColumn
@@ -124,11 +127,12 @@
             // 
             // frmEditoras
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEditoras";
             this.Text = "Editoras";
             this.Load += new System.EventHandler(this.FrmEditoras_Load);
