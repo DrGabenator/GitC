@@ -35,5 +35,13 @@ namespace MVCProject.View.FormsAdicionar
 
             this.Close();
         }
+
+        private void FrmAdicionarLivro_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Editoras' table. You can move, or remove it, as needed.
+            this.editorasTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Editoras);
+            // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Generos' table. You can move, or remove it, as needed.
+            this.generosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Generos);
+        }
     }
 }

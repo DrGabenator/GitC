@@ -1,4 +1,5 @@
 ﻿using MVCProject.View.FormsAdicionar;
+using MVCProject.View.FormsEditar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,21 @@ namespace MVCProject.View
 
             switch (e.ColumnIndex)
             {
-                case 0:
-                    {
-
-                    }break;
-
                 case 1:
                     {
+                        frmEditarUsuario editarUsuario = new frmEditarUsuario();
+                        editarUsuario.usuariosRow = usuariosSelect;
+                        editarUsuario.ShowDialog();
 
+                        this.usuariosTableAdapter.Update(editarUsuario.usuariosRow);
                     }break;
+
+                case 2:
+                    {
+
+                        this.usuariosTableAdapter.DeleteQuery(usuariosSelect.Id);
+                    }
+                    break;
             }
 
             this.usuariosTableAdapter.FillBy(this.sistemaBibliotecaDBDataSet.Usuarios);

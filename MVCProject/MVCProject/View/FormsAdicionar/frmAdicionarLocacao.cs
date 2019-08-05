@@ -30,6 +30,17 @@ namespace MVCProject.View.FormsAdicionar
                 Devolucao = dateTimePicker1.Value
 
             };
+
+            this.Close();
+        }
+
+        private void FrmAdicionarLocacao_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Usuarios' table. You can move, or remove it, as needed.
+            this.usuariosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Usuarios);
+            // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Livros' table. You can move, or remove it, as needed.
+            this.livrosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Livros);
+
         }
     }
 }

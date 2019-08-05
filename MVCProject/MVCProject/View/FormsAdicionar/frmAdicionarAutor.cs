@@ -27,6 +27,8 @@ namespace MVCProject.View.FormsAdicionar
                 Nome = textBox1.Text,
                 Descricao = textBox2.Text
             };
+
+            this.Close();
         }
     }
 }

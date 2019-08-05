@@ -1,4 +1,5 @@
 ﻿using MVCProject.View.FormsAdicionar;
+using MVCProject.View.FormsEditar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,19 @@ namespace MVCProject.View
 
             switch (e.ColumnIndex)
             {
-                case 0:
+                case 1:
                     {
+                        frmEditarLivro editarLivro = new frmEditarLivro();
+                        editarLivro.livrosRow = livrosSelect;
+                        editarLivro.ShowDialog();
 
+                        this.livrosTableAdapter.Update(editarLivro.livrosRow);
                     }
                     break;
 
-                case 1:
+                case 2:
                     {
-
+                        this.livrosTableAdapter.DeleteQuery(livrosSelect.Id);
                     }
                     break;
             }
@@ -66,6 +71,8 @@ namespace MVCProject.View
                 DateTime.Now,
                 DateTime.Now
                 );
+
+            this.livrosTableAdapter.FillBy(this.sistemaBibliotecaDBDataSet.Livros);
         }
     }
 }

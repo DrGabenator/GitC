@@ -1,4 +1,5 @@
 ﻿using MVCProject.View.FormsAdicionar;
+using MVCProject.View.FormsEditar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,19 @@ namespace MVCProject.View
 
             switch (e.ColumnIndex)
             {
-                case 0:
+                case 1:
                     {
+                        frmEditarLocacao editarLocacao = new frmEditarLocacao();
+                        editarLocacao.locacoesRow = locacoesSelect;
+                        editarLocacao.ShowDialog();
 
+                        this.locacoesTableAdapter.Update(editarLocacao.locacoesRow);
                     }
                     break;
 
-                case 1:
+                case 2:
                     {
-
+                        this.locacoesTableAdapter.DeleteQuery(locacoesSelect.Id);
                     }
                     break;
             }
@@ -63,6 +68,8 @@ namespace MVCProject.View
                 DateTime.Now,
                 DateTime.Now
                 );
+
+            this.locacoesTableAdapter.FillBy(this.sistemaBibliotecaDBDataSet.Locacoes);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MVCProject.View.FormsAdicionar;
+using MVCProject.View.FormsEditar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,13 @@ namespace MVCProject.View
 
             switch (e.ColumnIndex)
             {
-                case 0:
-                    {
-
-                    }
-                    break;
-
                 case 1:
                     {
+                        frmEditarGenero editarGenero = new frmEditarGenero();
+                        editarGenero.generosRow = generosSelect;
+                        editarGenero.ShowDialog();
 
+                        this.generosTableAdapter.Update(editarGenero.generosRow);
                     }
                     break;
             }
