@@ -21,6 +21,8 @@ namespace MVCProject.View
 
         private void FrmLivros_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Autores' table. You can move, or remove it, as needed.
+            this.autoresTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Autores);
             // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Livros' table. You can move, or remove it, as needed.
             this.livrosTableAdapter.FillBy(this.sistemaBibliotecaDBDataSet.Livros);
 
@@ -45,6 +47,14 @@ namespace MVCProject.View
                 case 2:
                     {
                         this.livrosTableAdapter.DeleteQuery(livrosSelect.Id);
+                    }
+                    break;
+
+                case 3:
+                    {
+                        frmLivroAutor frm = new frmLivroAutor();
+                        frm.livrosRow = livrosSelect;
+                        frm.ShowDialog();
                     }
                     break;
             }
