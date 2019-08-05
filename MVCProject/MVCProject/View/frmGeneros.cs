@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCProject.View.FormsAdicionar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,41 @@ namespace MVCProject.View
             // TODO: This line of code loads data into the 'sistemaBibliotecaDBDataSet.Generos' table. You can move, or remove it, as needed.
             this.generosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Generos);
 
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var generosSelect = ((System.Data.DataRowView)this.dataGridView1.Rows[e.RowIndex].DataBoundItem).Row as MVCProject.SistemaBibliotecaDBDataSet.GenerosRow;
+
+            switch (e.ColumnIndex)
+            {
+                case 0:
+                    {
+
+                    }
+                    break;
+
+                case 1:
+                    {
+
+                    }
+                    break;
+            }
+
+            this.generosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Generos);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            frmAdicionarGenero formAdd = new frmAdicionarGenero();
+            formAdd.ShowDialog();
+
+            this.generosTableAdapter.Insert(
+                formAdd.genero.Tipo,
+                formAdd.genero.Descricao
+                );
+
+            this.generosTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Generos);
         }
     }
 }

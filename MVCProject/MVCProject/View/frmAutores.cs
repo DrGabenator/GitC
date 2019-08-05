@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCProject.View.FormsAdicionar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,9 +25,39 @@ namespace MVCProject.View
 
         }
 
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var autoresSelect = ((System.Data.DataRowView)this.dataGridView1.Rows[e.RowIndex].DataBoundItem).Row as MVCProject.SistemaBibliotecaDBDataSet.AutoresRow;
+
+            switch (e.ColumnIndex)
+            {
+                case 0:
+                    {
+
+                    }
+                    break;
+
+                case 1:
+                    {
+
+                    }
+                    break;
+            }
+
+            this.autoresTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Autores);
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
+            frmAdicionarAutor formAdd = new frmAdicionarAutor();
+            formAdd.ShowDialog();
 
+            this.autoresTableAdapter.Insert(
+                formAdd.autor.Nome,
+                formAdd.autor.Descricao
+                );
+
+            this.autoresTableAdapter.Fill(this.sistemaBibliotecaDBDataSet.Autores);
         }
     }
 }
