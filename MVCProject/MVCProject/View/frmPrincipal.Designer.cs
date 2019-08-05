@@ -66,42 +66,42 @@
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.UsuáriosToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 
             this.autorToolStripMenuItem.Name = "autorToolStripMenuItem";
-            this.autorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.autorToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.autorToolStripMenuItem.Text = "Autores";
             this.autorToolStripMenuItem.Click += new System.EventHandler(this.AutorToolStripMenuItem_Click);
             // 
             // generoToolStripMenuItem
             // 
             this.generoToolStripMenuItem.Name = "generoToolStripMenuItem";
-            this.generoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.generoToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.generoToolStripMenuItem.Text = "Gêneros";
             this.generoToolStripMenuItem.Click += new System.EventHandler(this.GeneroToolStripMenuItem_Click);
             // 
             // livrosToolStripMenuItem
             // 
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.livrosToolStripMenuItem.Text = "Livros";
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.LivrosToolStripMenuItem_Click);
             // 
             // locaçõesToolStripMenuItem
             // 
             this.locaçõesToolStripMenuItem.Name = "locaçõesToolStripMenuItem";
-            this.locaçõesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.locaçõesToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.locaçõesToolStripMenuItem.Text = "Locações";
             this.locaçõesToolStripMenuItem.Click += new System.EventHandler(this.LocaçõesToolStripMenuItem_Click);
             // 
             // editorasToolStripMenuItem
             // 
             this.editorasToolStripMenuItem.Name = "editorasToolStripMenuItem";
-            this.editorasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editorasToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.editorasToolStripMenuItem.Text = "Editoras";
             this.editorasToolStripMenuItem.Click += new System.EventHandler(this.EditorasToolStripMenuItem_Click);
             // 

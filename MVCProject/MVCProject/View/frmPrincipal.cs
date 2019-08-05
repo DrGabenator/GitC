@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace MVCProject.View
         public frmPrincipal()
         {
             InitializeComponent();
+
+            if (Session.user == null)
+                throw new Exception("O computador vai se auto-destruir em 5 segundos.");
         }
 
         private void UsuáriosToolStripMenuItem_Click(object sender, EventArgs e)

@@ -21,8 +21,23 @@ namespace MVCProject
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            frmPrincipal formPrincipal = new frmPrincipal();
-            formPrincipal.ShowDialog();
+            var result = this.usuariosTableAdapter1.LoginQuery(textBox1.Text, textBox2.Text);
+
+            if (result != null)
+            {
+                Session.user = new Usuario
+                {
+                    Id = (int)result
+                };
+
+                frmPrincipal formPrincipal = new frmPrincipal();
+                formPrincipal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Login inválido!");
+            }
         }
+
     }
 }
