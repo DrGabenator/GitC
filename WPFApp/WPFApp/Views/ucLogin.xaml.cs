@@ -27,6 +27,8 @@ namespace WPFApp.Views
 
         public event EventHandler loginCorrect;
 
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Teste(tbxLogin.Text,tbxSenha.Text);
@@ -41,6 +43,9 @@ namespace WPFApp.Views
             }
             else
             {
+                mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\errou.mp3"));
+                mediaPlayer.Play();
+
                 MessageBox.Show("TÁ ERRADO, OTÁRIO!");
             }
         }

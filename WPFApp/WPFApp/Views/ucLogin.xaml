@@ -18,8 +18,8 @@
             <RowDefinition Height="99*"/>
         </Grid.RowDefinitions>
         <Button Content="Entrar" Margin="86,9.2,80.4,42" Grid.Row="2" Grid.Column="1" Click="Button_Click"/>
-        <TextBox Name="tbxSenha" Height="62" Margin="86,0,79.4,8.8" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1"/>
-        <TextBox Name="tbxLogin" Margin="86,137,79.4,10.2" TextWrapping="Wrap" Text="" Grid.Column="1"/>
+        <TextBox Name="tbxSenha" Height="62" Margin="86,0,79.4,8.8" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" FontSize="24"/>
+        <TextBox Name="tbxLogin" Margin="86,137,79.4,10.2" TextWrapping="Wrap" Text="" Grid.Column="1" FontSize="24"/>
 
     </Grid>
 </UserControl>

@@ -25,10 +25,17 @@ namespace WPFApp
             InitializeComponent();
         }
 
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+
         private void UcLoginForm_loginCorrect(object sender, EventArgs e)
         {
             ucTaskForm.Visibility = Visibility.Visible;
             ucCalculatorForm.Visibility = Visibility.Visible;
+            mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\acertou.mp3"));
+            mediaPlayer.Play();
+            /*mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\vitas.mp3"));
+            mediaPlayer.Position = TimeSpan.Zero;
+            mediaPlayer.Play();*/
             MessageBox.Show("ACERTOU, OTÁRIO!");
 
         }

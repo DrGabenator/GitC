@@ -24,5 +24,64 @@ namespace WPFApp.Views
         {
             InitializeComponent();
         }
+
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+
+        private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+
+            decimal num1 = decimal.Parse(Operador1.Text);
+
+            decimal num2 = decimal.Parse(Operador2.Text);
+
+            decimal resultado = num1 + num2;
+
+            mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\nani.mp3"));
+            mediaPlayer.Play();
+
+            Result.Text = resultado.ToString();
+        }
+
+        private void BrnSubtrair_Click(object sender, RoutedEventArgs e)
+        {
+            decimal num1 = decimal.Parse(Operador1.Text);
+
+            decimal num2 = decimal.Parse(Operador2.Text);
+
+            decimal resultado = num1 - num2;
+
+            mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\naruto.mp3"));
+            mediaPlayer.Play();
+
+            Result.Text = resultado.ToString();
+        }
+
+        private void BtnMultiplicaco_Click(object sender, RoutedEventArgs e)
+        {
+            decimal num1 = decimal.Parse(Operador1.Text);
+
+            decimal num2 = decimal.Parse(Operador2.Text);
+
+            decimal resultado = num1 * num2;
+
+            mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\omae.mp3"));
+            mediaPlayer.Play();
+
+            Result.Text = resultado.ToString();
+        }
+
+        private void BtnDivisao_Click(object sender, RoutedEventArgs e)
+        {
+            decimal num1 = decimal.Parse(Operador1.Text);
+
+            decimal num2 = decimal.Parse(Operador2.Text);
+
+            decimal resultado = num1 / num2;
+
+            mediaPlayer.Open(new Uri(@"C:\Users\hbsis\Downloads\arigato_oitbsfi.mp3"));
+            mediaPlayer.Play();
+
+            Result.Text = resultado.ToString();
+        }
     }
 }
