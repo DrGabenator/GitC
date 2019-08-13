@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfAppEntity.Data;
 
 namespace WpfAppEntity.Views
 {
@@ -24,8 +25,22 @@ namespace WpfAppEntity.Views
             InitializeComponent();
         }
 
+        public Usuario user;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            user.Nome = tbxName.Text;
+            user.Login = tbxLogin.Text;
+            user.Senha = tbxSenha.Text;
+
+            this.DialogResult = true;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbxName.Text = user.Nome;
+            tbxLogin.Text = user.Login;
+            tbxSenha.Text = user.Senha;
 
         }
     }

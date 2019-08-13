@@ -35,6 +35,9 @@ namespace WpfAppEntity.Views
 
         private void DtGridView_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            var objectToEdit = ((DataGrid)sender).SelectedValue as Usuario;
+
+
         }
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)

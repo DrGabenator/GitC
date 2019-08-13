@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppEntity.Views"
         mc:Ignorable="d"
-        Title="frmEditUser" Height="450" Width="800">
+        Title="frmEditUser" Height="234.299" Width="319.207">
     <Grid>
-        
+        <TextBox Name="tbxName" HorizontalAlignment="Left" Height="23" Margin="30,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
+        <TextBox Name="tbxLogin" HorizontalAlignment="Left" Height="23" Margin="30,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
+        <TextBox Name="tbxSenha" HorizontalAlignment="Left" Height="23" Margin="30,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
+        <Button Click="Button_Click" Content="Salvar" HorizontalAlignment="Left" Margin="30,114,0,0" VerticalAlignment="Top" Width="259" Height="62"/>
+
     </Grid>
 </Window>
