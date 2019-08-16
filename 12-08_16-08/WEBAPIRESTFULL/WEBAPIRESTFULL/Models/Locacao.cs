@@ -6,7 +6,7 @@ namespace WEBAPIRESTFULL.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Locacao")]
+    [Table("Locacoes")]
     public partial class Locacao
     {
         public int Id { get; set; }
