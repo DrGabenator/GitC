@@ -7,10 +7,7 @@ jQuery(document).ready(function () {
 
 		$('#Id').val("");
 		$('#Nome').val("");
-		$('#Login').val("");
-		$('#Email').val("");
-		$('#Senha').val("");
-		$('#Ativo select').val("true");
+		$('#Descricao').val("");
 	});
 
 	GetMethod(null);
@@ -24,7 +21,7 @@ function GetByID(id) {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Usuarios/" + id,
+		"url": "http://localhost:59271/Api/Editoras/" + id,
 		"method": "GET",
 		"headers": {
 			"Content-Type": "application/json",
@@ -35,10 +32,7 @@ function GetByID(id) {
 	$.ajax(settings).done(function (response) {
 		$('#Id').val(response.Id);
 		$('#Nome').val(response.Nome);
-		$('#Login').val(response.Login);
-		$('#Senha').val(response.Senha);
-		$('#Email').val(response.Email);
-		$('#Ativo select').val(response.Ativo);
+		$('#Descricao').val(response.Descricao);
 	});
 
 }
@@ -46,7 +40,7 @@ function GetByID(id) {
 function Deleting(id) {
 	var settings = {
 		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Usuarios/" + id,
+		"url": "http://localhost:59271/Api/Editoras/" + id,
 		"method": "DELETE",
 		"headers": {
 			"Content-Type": "application/x-www-form-urlencoded",
@@ -63,7 +57,7 @@ function GetMethod(object) {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Usuarios",
+		"url": "http://localhost:59271/Api/Editoras",
 		"method": "GET",
 		"headers": {
 			"Content-Type": "application/json",
@@ -84,9 +78,7 @@ function RefreshGrid(contentValue) {
 		+ '<tr>'
 		+ '<th>ID</th>'
 		+ '<th>Nome</th>'
-		+ '<th>Login</th>'
-		+ '<th>E-mail</th>'
-		+ '<th>Ativo</th>'
+		+ '<th>Descrição</th>'
 		+ '<th>Opções</th>'
 		+ '</tr>'
 		+ '</tbody>');
@@ -95,16 +87,14 @@ function RefreshGrid(contentValue) {
 		var row = '<tr>'
 			+ '<td>' + value.Id + '</td>'
 			+ '<td>' + value.Nome + '</td>'
-			+ '<td>' + value.Login + '</td>'
-			+ '<td>' + value.Email + '</td>'
-			+ '<td>' + value.Ativo + '</td>'
+			+ '<td>' + value.Descricao + '</td>'
 			+ '<td>'
 			+ '<div    class=\'col-md-12\' style=\'float: right;\'>'
 			+ '<div    class=\'col-md-6\'>'
-			+ '<button class=\'btn btn-block btn-danger col-md-3 ajax\' type=\'button\'  onclick=\'Deleting(' + value.Id + ')\'>Remover</button>'
+			+ '<button class=\'btn btn-block btn-danger col-md-3 ajax\' type=\'button\'  onclick=\'Deleting(' + value.Id + ')\'>SEXTOU</button>'
 			+ '</div>'
 			+ '<div     class=\'col-md-6\'>'
-			+ '<button  class=\'btn btn-block btn-success col-md-3\'    type=\'button\'  onclick=\'GetByID(' + value.Id + ')\'\>Editar</button>'
+			+ '<button  class=\'btn btn-block btn-success col-md-3\'    type=\'button\'  onclick=\'GetByID(' + value.Id + ')\'\>HBSIS</button>'
 			+ '</div>'
 			+ '</div>'
 			+ '</td>'
