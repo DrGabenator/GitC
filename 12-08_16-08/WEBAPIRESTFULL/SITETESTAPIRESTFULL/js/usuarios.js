@@ -1,4 +1,3 @@
-
 /* Ao carregar o documento o mesmo inicia o conteudo desde script*/
 jQuery(document).ready(function () {
 
@@ -16,48 +15,31 @@ jQuery(document).ready(function () {
 	GetMethod(null);
 });
 
-function GetByID(id) {
-	//$('#bntSubmit').hide();
-	//$('#bntSalvar').show();
-	$('#bntCancelar').show();
-
-	var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Usuarios/" + id,
-		"method": "GET",
-		"headers": {
-			"Content-Type": "application/json",
-			"Accept": "*/*"
-		}
-	}
-
-	$.ajax(settings).done(function (response) {
-		$('#Id').val(response.Id);
-		$('#Nome').val(response.Nome);
-		$('#Login').val(response.Login);
-		$('#Senha').val(response.Senha);
-		$('#Email').val(response.Email);
-		$('#Ativo select').val(response.Ativo);
-	});
-
-}
-
-function Deleting(id) {
-	var settings = {
-		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Usuarios/" + id,
-		"method": "DELETE",
-		"headers": {
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Accept": "*/*"
-		}
-	}
-
-	$.ajax(settings).done(function (response) {
-		GetMethod(null);
-	});
-}
+//function GetByID(id) {
+//	//$('#bntSubmit').hide();
+//	//$('#bntSalvar').show();
+//
+//	var settings = {
+//		"async": true,
+//		"crossDomain": true,
+//		"url": "http://localhost:59271/Api/Usuarios/" + id,
+//		"method": "GET",
+//		"headers": {
+//			"Content-Type": "application/json",
+//			"Accept": "*/*"
+//		}
+//	}
+//
+//	$.ajax(settings).done(function (response) {
+//		$('#Id').val(response.Id);
+//		$('#Nome').val(response.Nome);
+//		$('#Login').val(response.Login);
+//		$('#Senha').val(response.Senha);
+//		$('#Email').val(response.Email);
+//		$('#Ativo select').val(response.Ativo);
+//	});
+//
+//}
 
 function GetMethod(object) {
 	var settings = {
@@ -101,17 +83,16 @@ function RefreshGrid(contentValue) {
 			+ '<td>'
 			+ '<div    class=\'col-md-12\' style=\'float: right;\'>'
 			+ '<div    class=\'col-md-6\'>'
-			+ '<button class=\'btn btn-block btn-danger col-md-3 ajax\' type=\'button\'  onclick=\'Deleting(' + value.Id + ')\'>Remover</button>'
+			+ '<button class=\'btn btn-block btn-danger col-md-3 btn-delet-event\' type=\'button\' send-post=\'Usuarios\'  value=\'' + value.Id + '\'>Remover</button>'
 			+ '</div>'
 			+ '<div     class=\'col-md-6\'>'
-			+ '<button  class=\'btn btn-block btn-success col-md-3\'    type=\'button\'  onclick=\'GetByID(' + value.Id + ')\'\>Editar</button>'
+			+ '<button  class=\'btn btn-block btn-success col-md-3 btn-editing-event\' send-post=\'Usuarios\' value=\''+ value.Id +'\' type=\'button\'\>Editar</button>'
 			+ '</div>'
 			+ '</div>'
 			+ '</td>'
 			+ '</tr>';
 		$('#tDataGrid').append(row);
 	});
+
+	SetGridClickEvents();
 }
-
-
-

@@ -69,7 +69,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Inc</b></span>
+        <span class="logo-lg"><b>Inc</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -409,12 +409,12 @@
 
       <section class="content" style="margin-bottom:0px;padding-bottom:0px;min-height:0px;">
         <!-- Small boxes (Stat box) -->
-        <form call="GetMethod" send-post="usuarios" class="box box-primary  collapsed-box form-post">
+        <form call="GetMethod" send-post="Usuarios" class="box box-primary collapsed-box form-post">
           <div class="box-header with-border">
             <h3 class="box-title">Usuários</h3>
 
             <div class="box-tools pull-right">
-              <button type="button" class="btn btn-block btn-primary" data-widget="collapse"><i
+              <button id="collapse-btn" type="button" class="btn btn-block btn-primary" data-widget="collapse"><i
                   class="fa fa-plus"></i></button>
             </div>
           </div>
@@ -459,7 +459,6 @@
               </div>
             </div>
             <!-- /.box-body -->
-
             <div class="box-footer">
               <button type="submit" id="bntSubmit" class="btn btn-primary">Finalizar cadastro</button>
               <button type="button" id="bntSalvar" class="btn btn-primary" style="display:none;">Salvar
@@ -739,8 +738,9 @@
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
     <!-- Custom page script sections -->
-    <script src="js/usuarios.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/usuarios.js"></script>
+
   </scriptsection>
 </body>
 

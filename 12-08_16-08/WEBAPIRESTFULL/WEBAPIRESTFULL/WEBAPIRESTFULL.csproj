@@ -177,6 +177,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908201758049_First.cs" />
+    <Compile Include="Migrations\201908201758049_First.Designer.cs">
+      <DependentUpon>201908201758049_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908201825113_Update-Editoras-Generos.cs" />
+    <Compile Include="Migrations\201908201825113_Update-Editoras-Generos.Designer.cs">
+      <DependentUpon>201908201825113_Update-Editoras-Generos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Autores.cs" />
     <Compile Include="Models\BibliotecaContextDB.cs" />
     <Compile Include="Models\Editoras.cs" />
@@ -269,6 +278,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908201758049_First.resx">
+      <DependentUpon>201908201758049_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201825113_Update-Editoras-Generos.resx">
+      <DependentUpon>201908201825113_Update-Editoras-Generos.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
