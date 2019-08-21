@@ -37,10 +37,21 @@ jQuery(document).ready(function () {
             window[callStr](response);
         });
 
+        $.each(form, function(index,value){
+            $('[name=\''+ value.name +'\']').val("");
+        });
+        
         return false;
     });
 
-    SetGridClickEvents();
+    jQuery('.btn-cancel-form').click(function(){
+        var form = $(this).parent().parent().parent()[0];
+
+        $.each(form, function(index,value){
+            $('[name=\''+ value.name +'\']').val("");
+        })
+    });
+
 });
 
 function SetGridClickEvents() {
