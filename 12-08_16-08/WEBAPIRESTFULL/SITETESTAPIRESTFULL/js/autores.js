@@ -1,42 +1,7 @@
 /* Ao carregar o documento o mesmo inicia o conteudo desde script*/
 jQuery(document).ready(function () {
-
-	jQuery('#bntCancelar').click(function () {
-		$('#bntCancelar').hide();
-
-		$('#Id').val("");
-		$('#Nome').val("");
-		$('#Descricao').val("");
-		$('#Ativo select').val("true");
-	});
-
 	GetMethod(null);
 });
-
-function GetByID(id) {
-	//$('#bntSubmit').hide();
-	//$('#bntSalvar').show();
-	$('#bntCancelar').show();
-
-	var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "http://localhost:59271/Api/Autores/" + id,
-		"method": "GET",
-		"headers": {
-			"Content-Type": "application/json",
-			"Accept": "*/*"
-		}
-	}
-
-	$.ajax(settings).done(function (response) {
-		$('#Id').val(response.Id);
-		$('#Nome').val(response.Nome);
-		$('#Descricao').val(response.Descricao);
-		$('#Ativo select').val(response.Ativo);
-	});
-
-}
 
 function GetMethod(object) {
 	var settings = {
@@ -78,10 +43,10 @@ function RefreshGrid(contentValue) {
 			+ '<td>'
 			+ '<div    class=\'col-md-12\' style=\'float: right;\'>'
 			+ '<div    class=\'col-md-6\'>'
-			+ '<button class=\'btn btn-block btn-danger col-md-3 btn-delet-event\' type=\'button\' send-post=\'Autores\'  value=\'' + value.Id + '\'>Remover</button>'
+			+ '<button class=\'btn btn-block btn-danger col-md-3 btn-delet-event\' type=\'button\' send-post=\'Autores\' value=\'' + value.Id + '\'>Remover</button>'
 			+ '</div>'
 			+ '<div     class=\'col-md-6\'>'
-			+ '<button  class=\'btn btn-block btn-success col-md-3 btn-editing-event\' send-post=\'Autores\' value=\''+ value.Id +'\' type=\'button\'  onclick=\'GetByID(' + value.Id + ')\'\>Editar</button>'
+			+ '<button  class=\'btn btn-block btn-success col-md-3 btn-editing-event\' send-post=\'Autores\' type=\'button\' value=\'' + value.Id + '\' type=\'button\'\>Editar</button>'
 			+ '</div>'
 			+ '</div>'
 			+ '</td>'

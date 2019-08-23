@@ -21,7 +21,7 @@ namespace WEBAPIRESTFULL.Controllers
         // GET: api/Editoras
         public IQueryable<Editoras> GetEditoras()
         {
-            return db.Editoras;
+            return db.Editoras.Where(x => x.Ativo == true);
         }
 
         // GET: api/Editoras/5
@@ -73,7 +73,7 @@ namespace WEBAPIRESTFULL.Controllers
         }
 
         // POST: api/Editoras
-        // [ResponseType(typeof(Editoras))]
+        [ResponseType(typeof(Editoras))]
         public IHttpActionResult PostEditoras(Editoras editoras)
         {
             if (!ModelState.IsValid)
@@ -92,16 +92,18 @@ namespace WEBAPIRESTFULL.Controllers
         [ResponseType(typeof(Editoras))]
         public IHttpActionResult DeleteEditoras(int id)
         {
-            Editoras editoras = db.Editoras.Find(id);
-            if (editoras == null)
+            Editoras autores = db.Editoras.Find(id);
+
+            if (autores == null)
             {
                 return NotFound();
             }
 
-            db.Editoras.Remove(editoras);
+            db.Editoras.Find(id).Ativo = false;
+
             db.SaveChanges();
 
-            return Ok(editoras);
+            return Ok(autores);
         }
 
         protected override void Dispose(bool disposing)

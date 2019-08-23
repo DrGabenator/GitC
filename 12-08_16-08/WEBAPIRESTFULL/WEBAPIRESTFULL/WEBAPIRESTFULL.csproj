@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201908201825113_Update-Editoras-Generos.Designer.cs">
       <DependentUpon>201908201825113_Update-Editoras-Generos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908221157422_Second.cs" />
+    <Compile Include="Migrations\201908221157422_Second.Designer.cs">
+      <DependentUpon>201908221157422_Second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Autores.cs" />
     <Compile Include="Models\BibliotecaContextDB.cs" />
@@ -287,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908201825113_Update-Editoras-Generos.resx">
       <DependentUpon>201908201825113_Update-Editoras-Generos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908221157422_Second.resx">
+      <DependentUpon>201908221157422_Second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

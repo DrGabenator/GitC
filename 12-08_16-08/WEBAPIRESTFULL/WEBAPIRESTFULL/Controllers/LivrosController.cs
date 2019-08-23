@@ -21,7 +21,7 @@ namespace WEBAPIRESTFULL.Controllers
         // GET: api/Livros
         public IQueryable<Livros> GetLivros()
         {
-            return db.Livros;
+            return db.Livros.Where(x => x.Ativo == true);
         }
 
         // GET: api/Livros/5
@@ -73,7 +73,7 @@ namespace WEBAPIRESTFULL.Controllers
         }
 
         // POST: api/Livros
-        // [ResponseType(typeof(Livros))]
+        [ResponseType(typeof(Livros))]
         public IHttpActionResult PostLivros(Livros livros)
         {
             if (!ModelState.IsValid)
@@ -93,12 +93,14 @@ namespace WEBAPIRESTFULL.Controllers
         public IHttpActionResult DeleteLivros(int id)
         {
             Livros livros = db.Livros.Find(id);
+
             if (livros == null)
             {
                 return NotFound();
             }
 
-            db.Livros.Remove(livros);
+            db.Livros.Find(id).Ativo = false;
+
             db.SaveChanges();
 
             return Ok(livros);

@@ -10,10 +10,10 @@ namespace WEBAPIRESTFULL.Controllers
     public class MathFile : Single<MathFile>
     {
         BibliotecaContextDB bibliotecaContextDB = new BibliotecaContextDB();
-
         public int QuantidadeUsuarios()
         {
-            return bibliotecaContextDB.Usuarios.Count();
+            return bibliotecaContextDB
+                   .Usuarios.Count();
         }
     }
 }
